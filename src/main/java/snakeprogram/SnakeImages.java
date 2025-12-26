@@ -40,6 +40,7 @@ import snakeprogram.util.AreaAndCentroid;
 
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
@@ -406,8 +407,6 @@ public class SnakeImages{
     
     public void drawIds(MultipleSnakesStore ss, ImageProcessor imp){
         int frame = getCounter();
-        int w = imp.getWidth();
-        int h = imp.getHeight();
         for(Snake snake: ss){
             if(snake.exists(frame)){
                 int id = ss.indexOf(snake);
@@ -416,22 +415,21 @@ public class SnakeImages{
 
                 double[] center = AreaAndCentroid.calculateCentroid(area, points);
                 double[] zoomed = toZoom(center);
-                double[] zoomed2 = toZoom(new double[]{ center[0] + 1, center[1] + 1});
-                int blockWidth = (int)(zoomed2[0] - zoomed[0]);
-                int blockHeight = (int)(zoomed2[1] - zoomed[1]);
 
-                if(zoomed[0] > 0 && zoomed[0] < w - 4*blockWidth && zoomed[1] > 0 && zoomed[1] < h - 4*blockHeight) {
-                    int on = (0xff << 16) + (0xff << 8);
-                    int off = (0x0 << 16) + (0x0 << 8) + (0xff);
+                // Draw text ID at centroid
+                imp.setFont(new Font("SansSerif", Font.BOLD, 14));
+                String idText = String.valueOf(id + 1);  // 1-based for users
 
-                    for (int i = 0; i < 16; i++) {
-                        int x = blockWidth*(i % 4) + (int) zoomed[0];
-                        int y = blockHeight*(i / 4) + (int) zoomed[1];
-                        int p = (id & (0x1 << i)) != 0 ? on : off;
-                        imp.setColor(p);
-                        imp.fillOval(x, y, blockWidth, blockHeight);
-                    }
-                }
+                // Draw black outline for better visibility
+                imp.setColor(Color.BLACK);
+                imp.drawString(idText, (int)zoomed[0]-1, (int)zoomed[1]);
+                imp.drawString(idText, (int)zoomed[0]+1, (int)zoomed[1]);
+                imp.drawString(idText, (int)zoomed[0], (int)zoomed[1]-1);
+                imp.drawString(idText, (int)zoomed[0], (int)zoomed[1]+1);
+
+                // Draw white text on top
+                imp.setColor(Color.WHITE);
+                imp.drawString(idText, (int)zoomed[0], (int)zoomed[1]);
             }
         }
     }

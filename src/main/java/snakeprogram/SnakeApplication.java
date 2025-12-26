@@ -56,7 +56,7 @@ import java.time.LocalDateTime;
 
 public class SnakeApplication implements PlugInFilter{
     //it's back.
-    final public static String VERSION = "1.2.1";
+    final public static String VERSION = "1.2.3-SNAPSHOT";
 
     ImagePlus implus;
 

@@ -55,3 +55,20 @@ References:
 M. B. Smith, H. Li, T. Shen, X. Huang, E. Yusuf, and D. Vavylonis, "Segmentation and Tracking of Cytoskeletal Filaments using Open Active Contours," Cytoskeleton 67:693-705 (2010)
 
 H. Li, T. Shen, M. B. Smith, I. Fujiwara, D. Vavylonis, and X. Huang, "Automated Actin Filament Segmentation, Tracking, and Tip Elongation Measurements based on Open Active Contour Models," In Proc. of the IEEE International Symposium on Biomedical Imaging: From Nano to Macro, ISBI-09, Boston, 2009 
+
+# Jun's Fork
+
+
+```
+mvn clean package -Dmaven.javadoc.skip=true
+```
+
+```
+mv /Applications/Fiji/plugins/JFilament_-1.2.1.jar /Applications/Fiji/plugins/JFilament_-1.2.1.jar.bak
+```
+
+```
+cp target/JFilament_-1.2.3-SNAPSHOT.jar /Applications/Fiji/plugins/.  
+```
+
+Change version in `final public static String VERSION = "1.2.1";`
