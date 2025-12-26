@@ -56,19 +56,25 @@ M. B. Smith, H. Li, T. Shen, X. Huang, E. Yusuf, and D. Vavylonis, "Segmentation
 
 H. Li, T. Shen, M. B. Smith, I. Fujiwara, D. Vavylonis, and X. Huang, "Automated Actin Filament Segmentation, Tracking, and Tip Elongation Measurements based on Open Active Contour Models," In Proc. of the IEEE International Symposium on Biomedical Imaging: From Nano to Macro, ISBI-09, Boston, 2009 
 
+
+
+
 # Jun's Fork
 
+**Version 1.3.0-JUN** - Display snake IDs as text numbers instead of binary grid.
 
+## Installation
+
+Download `JFilament_-1.3.0-JUN.jar` from the [Releases page](https://github.com/allardjun/jfilament/releases) and copy it to your Fiji `plugins/` folder.
+
+## Developer Notes
+
+Build command:
 ```
 mvn clean package -Dmaven.javadoc.skip=true
 ```
 
+Install to Fiji:
 ```
-mv /Applications/Fiji/plugins/JFilament_-1.2.1.jar /Applications/Fiji/plugins/JFilament_-1.2.1.jar.bak
+cp target/JFilament_-1.3.0-JUN.jar /Applications/Fiji/plugins/.
 ```
-
-```
-cp target/JFilament_-1.2.3-SNAPSHOT.jar /Applications/Fiji/plugins/.  
-```
-
-Change version in `final public static String VERSION = "1.2.1";`
