@@ -65,7 +65,13 @@ H. Li, T. Shen, M. B. Smith, I. Fujiwara, D. Vavylonis, and X. Huang, "Automated
 
 ## Installation
 
-Download `JFilament_-1.3.0-JUN.jar` from the [Releases page](https://github.com/allardjun/jfilament/releases) and copy it to your Fiji `plugins/` folder.
+1. If you have an existing JFilament installed, rename it first (in case you need to revert):
+   ```
+   mv plugins/JFilament_*.jar plugins/JFilament_old.jar.bak
+   ```
+2. Download `JFilament_-1.3.0-JUN.jar` from the [Releases page](https://github.com/allardjun/jfilament/releases)
+3. Copy it to your Fiji `plugins/` folder
+4. Restart Fiji
 
 ## Developer Notes
 
